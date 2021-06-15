@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/vue.js"></script>
+    <script src="js/vue-resource.min.js"></script>
+    <title>Document</title>
+</head>
+
+
+<body class="bg-primary">
+    <div id="app" class="container">
+
+<div class="row">
+
+    <div class="col-sm-6">
+
+        <h3 class="text-center text-white mt-4">{{mensaje}}  <span><img src="img/bandera_colombia.png" width="20px" height="20px"></span></h3>
+       
+
+        <div class="container mt-4">
+            <h4 class="text-center">Seleccione la fecha a consultar:</h4>
+        <div class="input-group date">
+
+            <input :disabled="!hayInternet" style="font-size: 20px;"  class="form-control" :onchange='getDatos()' v-model="fecha" type="date" id="start" name="trip-start"
+            min="2000-01-01" :max="fecha_maxima">
+            
+        </div>
+
+        <div class="container bg-danger text-white text-center mt-4 mb-4 p-2">
+            <h2>{{valor_dolar}}</h2>
+         </div>
+
+        </div>
+      
+
+
+    </div>
+
+    <div class="col-sm-6 mt-4">
+       
+        <div class="container">
+        
+            <h3 class="text-center text-white">Calcular cantidad</h3>
+            
+            <div class="form-group">
+            <h4 class="mt-4 text-center">Ingrese la cantidad:</h4>
+            <input :disabled="valor <= 0" @keyup="calcular" style="font-size: 20px;" v-model="cantidad_dolares" type="number" placeholder="Cantidad en dolares $" class="form-control">
+
+            <div class="container bg-danger text-white text-center mt-4 mb-4 p-2">
+                <h2>$ {{valor_calcular}}</h2>
+             </div>
+
+        </div>
+
+
+        </div>
+
+
+    </div>
+
+</div>
+
+<div class="text-center container mt-5 mb-5 text-white">
+<h5>Yolenith software</h5>
+</div>
+
+    </div>
+    <script src="js/index.js"></script>
+</body>
+</html>
